@@ -5,8 +5,8 @@ print start_time
 print 'Initializing...'
 import arcgisscripting
 gp = arcgisscripting.create()
-gp.workspace = 'e:/field_boundaries/fields.gdb'
-out_fc = 'e:/field_boundaries/fields.gdb/fields'
+gp.workspace = 'c:/field_boundaries/fields.gdb'
+out_fc = 'c:/field_boundaries/fields.gdb/fields'
 
 print 'Adding fields...'
 gp.AddField(out_fc, 'FIELD_NAME', 'text', '#', '#', '150', 'FIELD_NAME', 'nullable', 'non_required', '#')
