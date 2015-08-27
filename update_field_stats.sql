@@ -1,3 +1,5 @@
+set define off;
+
 UPDATE oilgas_fields_lam SET prod_gas = (SELECT prod_gas FROM field_stats WHERE oilgas_fields_lam.field_kid = field_stats.field_kid);
 
 UPDATE oilgas_fields_lam SET prod_oil = (SELECT prod_oil FROM field_stats WHERE oilgas_fields_lam.field_kid = field_stats.field_kid);
