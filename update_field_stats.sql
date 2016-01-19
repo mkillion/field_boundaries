@@ -37,3 +37,13 @@ UPDATE oilgas_fields_lam SET field_type = 'Oil and Gas' where field_type = 'O&G'
 UPDATE oilgas_fields_lam SET field_type = 'Oil' where field_type = 'OIL';
 
 UPDATE oilgas_fields_lam SET field_type = 'Gas' where field_type = 'GAS';
+
+update OILGAS_FIELDS_LAM set formations =
+  (select names from (
+    select field_kid,
+      listagg (formation_name, ',') WITHIN GROUP (ORDER BY formation_name)
+            names
+    FROM nomenclature.fields_reservoirs
+    GROUP BY field_kid
+    ) where oilgas_fields_lam.field_kid = field_kid
+  );
