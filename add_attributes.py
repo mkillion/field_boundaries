@@ -3,12 +3,14 @@ start_time = strftime('%a, %d %b %Y %H:%M:%S', localtime())
 print start_time
 
 print 'Initializing...'
+
 import arcgisscripting
 gp = arcgisscripting.create()
 gp.workspace = 'c:/field_boundaries/fields.gdb'
 out_fc = 'c:/field_boundaries/fields.gdb/fields'
 
 print 'Adding fields...'
+
 gp.AddField(out_fc, 'FIELD_NAME', 'text', '#', '#', '150', 'FIELD_NAME', 'nullable', 'non_required', '#')
 gp.AddField(out_fc, 'STATUS', 'text', '#', '#', '50', 'STATUS', 'nullable', 'non_required', '#')
 gp.AddField(out_fc, 'FIELD_TYPE', 'text', '#', '#', '5', 'FIELD_TYPE', 'nullable', 'non_required', '#')
